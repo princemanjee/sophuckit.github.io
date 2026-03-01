@@ -422,7 +422,18 @@
       display: block;
     }
 
-    .glass-card {
+    .glass-card,
+    .episode-card,
+    .about-card,
+    .host-card,
+    .platform-card,
+    .platform-card--featured,
+    .guest-card,
+    .profile-layout,
+    .intake-form-wrap,
+    .pricing-card,
+    .newsletter-form-card,
+    .store-cta-card {
       background: var(--glass-bg);
       backdrop-filter: blur(var(--glass-blur));
       -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -605,13 +616,9 @@
 
     /* Episode card */
     .episode-card {
-      background-color: var(--bg);
-      border: 1px solid rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
     }
 
     html.theme-dark .episode-card {
@@ -988,7 +995,6 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      padding: 2rem;
     }
 
     .platform-card-inner {
@@ -1010,7 +1016,6 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-      padding: 1.75rem 1.25rem;
       text-align: center;
     }
 
@@ -1705,7 +1710,6 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 1.75rem 1.5rem;
       position: relative;
     }
 
@@ -2004,7 +2008,6 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 2rem;
     }
 
     .newsletter-form-title {
@@ -2143,7 +2146,6 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 2rem;
       text-align: center;
       align-items: center;
     }
