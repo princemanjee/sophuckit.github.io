@@ -11,7 +11,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="{{ site.meta.twitter_handle }}">
   <title>{{ page.title | default: site.title }} | {{ site.tagline }}</title>
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 </head>
 <body class="{{ page.body_class }}">
   <button id="theme-toggle" onclick="cycleTheme()" aria-label="Toggle Theme">Hybrid</button>
@@ -76,6 +76,6 @@
     </div>
   </footer>
 
-  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 </body>
 </html>
