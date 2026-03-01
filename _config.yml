@@ -1,8 +1,8 @@
 title: Sophuckit Podcast
 description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
 tagline: "Exposing the Phucking Truth."
-baseurl: "/sophuckit.github.io" # the subpath of your site, e.g. /blog
-url: "https://sophuckit.com" # the base hostname & protocol for your site
+baseurl: "/sophuckit.github.io" # Base subpath for your repository
+url: "https://princemanjee.github.io"
 
 # Meta / SEO
 meta:
@@ -44,7 +44,7 @@ defaults:
       layout: "season"
 
 markdown: kramdown
-theme: minima # You can keep or remove this; for a custom site we'll rely on our own CSS.
+# Removing theme: minima to ensure our custom layouts are used
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -54,3 +54,5 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - node_modules
+  - package-lock.json
