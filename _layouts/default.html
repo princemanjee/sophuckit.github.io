@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.meta.og_image }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{ site.meta.twitter_handle }}">
+  <title>{{ page.title | default: site.title }} | {{ site.tagline }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body class="{{ page.body_class }}">
+  <button id="theme-toggle" onclick="cycleTheme()" aria-label="Toggle Theme">Hybrid</button>
+
+  <header id="site-header">
+    <div class="nav-inner">
+      <a class="logo" onclick="showPage('hero')">
+        <span class="logo-main">Sophuckit</span>
+        <span class="logo-sub">Podcast</span>
+      </a>
+      <button class="hamburger" id="hamburger-btn" onclick="toggleNav()" aria-label="Toggle Navigation" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        {% for link in site.data.navigation.main %}
+          <li>
+            <a href="#" 
+               class="nav-link {% if forloop.first %}active{% endif %}" 
+               data-section="{{ link.section }}" 
+               onclick="showPage('{{ link.section }}');return false;">
+               {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </header>
+
+  <main id="app">
+    {{ content }}
+  </main>
+
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <a class="footer-logo" onclick="showPage('hero')">
+          <span class="logo-main">Sophuckit</span>
+          <span class="logo-sub">Podcast</span>
+        </a>
+        <p class="footer-tagline">{{ site.tagline }}</p>
+      </div>
+      <ul class="footer-nav-list">
+        {% for link in site.data.navigation.footer %}
+          <li>
+            {% if link.external %}
+              <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="footer-link">
+                {{ link.title }}
+              </a>
+            {% else %}
+              <a href="#" class="footer-link" onclick="showPage('{{ link.section }}');return false;">
+                {{ link.title }}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+</body>
+</html>

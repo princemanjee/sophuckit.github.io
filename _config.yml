@@ -1,0 +1,47 @@
+title: Sophuckit Podcast
+description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
+tagline: "Exposing the Phucking Truth."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://sophuckit.com" # the base hostname & protocol for your site
+
+# Meta / SEO
+meta:
+  og_image: "/assets/images/sophuckit.jpg"
+  twitter_handle: "@sophuckit"
+
+collections:
+  episodes:
+    output: true
+  guests:
+    output: true
+  hosts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: "episode"
+  - scope:
+      path: ""
+      type: "guests"
+    values:
+      layout: "guest"
+  - scope:
+      path: ""
+      type: "hosts"
+    values:
+      layout: "host"
+
+markdown: kramdown
+theme: minima # You can keep or remove this; for a custom site we'll rely on our own CSS.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .sass-cache
+  - .jekyll-cache
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

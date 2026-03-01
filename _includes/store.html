@@ -1,0 +1,20 @@
+<section id="store" class="page">
+  <div class="section-inner">
+    <div class="store-wrap">
+      <div class="store-copy">
+        <h2 class="store-title">{{ site.data.store.title }}</h2>
+        <p class="store-lead">{{ site.data.store.lead }}</p>
+        <div class="store-body">{{ site.data.store.body | markdownify }}</div>
+      </div>
+      <div class="store-cta-block">
+        <div class="store-cta-card glass-card">
+          <p class="caption store-cta-label">{{ site.data.store.cta.label }}</p>
+          <h3 class="store-cta-title">{{ site.data.store.cta.title }}</h3>
+          <p class="store-cta-desc">{{ site.data.store.cta.desc }}</p>
+          <a href="{{ site.data.store.cta.url }}" target="_blank" rel="noopener noreferrer" class="btn-primary store-btn">{{ site.data.store.cta.btn_label }}</a>
+          <p class="form-hint caption store-disclaimer">{{ site.data.store.cta.disclaimer | markdownify }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

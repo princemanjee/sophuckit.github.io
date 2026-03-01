@@ -1,0 +1,432 @@
+/* -------------------------------------------------------
+   SOPHUCKIT V2 - SHARED STYLES
+   Premium Broadcast Design System
+------------------------------------------------------- */
+
+/* FONTS */
+@font-face {
+  font-family: "Mistrully";
+  src: url("./mistrully.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OPTICopperplate";
+  src: url("opticopperplate.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* VARIABLES */
+:root {
+  /* Brand Core */
+  --accent: #ce2029;
+  --accent-red: #ce2029; /* Brand Red */
+  --accent-glow: rgba(206, 32, 41, 0.5);
+
+  /* Light Theme Defaults */
+  --bg-color: #f4f4f5;
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Dimensions */
+  --border-radius: 16px;
+  --border-width: 3px;
+
+  /* Animation */
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body.dark {
+  /* Dark Theme Overrides */
+  --bg-color: #09090b;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --glass-bg: rgba(20, 20, 23, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, -apple-system, sans-serif; /* Fallback to system */
+  overflow: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* -------------------------------------------------------
+   UTILITIES & COMPONENTS
+------------------------------------------------------- */
+
+/* Glass Effect */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+}
+
+/* Frame / Video Window */
+.frame-container {
+  position: absolute;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: var(--border-width) solid var(--accent-red);
+  box-shadow: 0 0 20px var(--accent-glow);
+  /* background: rgba(0, 0, 0, 0.2); /* Placeholder for empty source */ 
+
+  background: #00b140;
+
+
+
+  /* Animation Initial State */
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity 0.6s var(--ease-out-quart),
+    transform 0.6s var(--ease-out-quart);
+}
+
+.frame-container.reveal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.frame-container.hide {
+  opacity: 0;
+  transform: scale(0.95) translateY(-20px);
+}
+/* -------------------------------------------------------
+   LOGO
+------------------------------------------------------- */
+
+/* Logo */
+.logo-container {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.8;
+}
+.logo-container.reveal {
+  opacity: 1;
+  transform: translateX(0);
+}
+.logo-container.hide {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.logo-main {
+  font-family: 'Mistrully';
+  font-size: 72px;
+  letter-spacing: 0.02em;
+  margin-bottom: -8px;
+  margin-top: 24px;
+  color: var(--logo-black);
+  text-shadow:
+    0px 0px 6px rgba(0, 0, 0, 0.35),
+    0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .logo-main {
+  color: var(--logo-white);
+  text-shadow:
+    0px 0px 6px rgba(255, 255, 255, 0.45),
+    0px 0px 12px rgba(255, 255, 255, 0.35);
+}
+
+.logo-sub {
+  font-family: 'OPTICopperplate';
+  font-size: 18px;
+  letter-spacing: 0.28em;
+  margin-right: 6px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  text-shadow:
+    0px 0px 6px rgba(0, 0, 0, 0.35),
+    0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .logo-sub {
+  color: var(--accent-red);
+  text-shadow:
+    0px 0px 6px rgba(255, 255, 255, 0.45),
+    0px 0px 12px rgba(255, 255, 255, 0.35);
+}
+
+/*
+.logo-container {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 100;
+
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s var(--ease-out-quart),
+    transform 0.8s var(--ease-out-quart);
+}
+
+.logo-container.reveal {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.logo-main {
+  font-family: "Mistrully", cursive;
+  font-size: 80px;
+  line-height: 0.8;
+  color: var(--text-primary);
+  margin-bottom:-16px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  z-index: 98;
+}
+
+.logo-sub {
+  font-family: "OPTICopperplate", serif;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-top: 15px;
+  margin-left: 75px;
+  font-weight: bold;
+  z-index: 99;
+}
+
+body.dark .logo-main {
+  color: #fff;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+*/
+/* -------------------------------------------------------
+   HEADER CAPSULE
+------------------------------------------------------- */
+
+/* HEADER CAPSULE */
+.header-capsule {
+  position: absolute;
+  top: 42px;
+  left: 25%;
+  min-width: 50%;
+  padding: 30px 30px;
+  background: var(--bg);
+  border: 4px solid var(--accent);
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  overflow: hidden;
+  background: rgba(42,42,42,0.33);
+  opacity: 1;
+}
+.dark .header-capsule {
+  background: rgba(42,42,42,.99);
+}
+.header-text {
+  font-family: 'OPTICopperplate';
+  font-size: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 1;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+#line1, #line2 {
+  text-align: center;
+  width: 100%;
+}
+.dark .header-text {
+  color: var(--text);
+}
+
+/* RED SWEEP */
+.capsule-sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  z-index: 2;
+}
+
+/* SWEEP ANIMATION */
+.header-capsule.animate .capsule-sweep {
+  animation: sweep-across 0.55s ease-out forwards;
+}
+.header-capsule.animate .header-text {
+  animation: text-reveal 0.55s ease-out forwards;
+  animation-delay: 0.10s;
+}
+
+@keyframes sweep-across {
+  0%   { left: -100%; opacity: 1; }
+  60%  { left: 0%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes text-reveal {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+/* -------------------------------------------------------
+   TICKER (Bottom Bar)
+------------------------------------------------------- */
+.ticker-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-top: 2px solid var(--accent-red);
+  z-index: 50;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.8s var(--ease-out-quart), opacity 0.8s;
+}
+
+.ticker-bar.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ticker-label {
+  background: var(--accent-red);
+  color: #fff;
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-family: "OPTICopperplate", serif;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.ticker-content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Marquee Animation */
+.marquee-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* -------------------------------------------------------
+   NAMEPLATES
+------------------------------------------------------- */
+.nameplate {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 16px 10px 24px;
+  border-left: 6px solid var(--accent-red);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+
+  transform: translateY(10px);
+  opacity: 1;
+  transition: all 0.5s ease 0.5s; /* Delay for frame reveal */
+}
+.dark .nameplate {
+  background: #fff;;
+}
+
+.frame-container.reveal .nameplate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nameplate-text {
+  color: #fff;
+  font-family: "OPTICopperplate", serif;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.dark .nameplate-text {
+  color: #2a2a2a;
+}
+
+/* -------------------------------------------------------
+   CHAT BOX
+------------------------------------------------------- */
+.chat-container {
+  /* Position is handled by specific layout */
+  border-radius: var(--border-radius);
+  border: 1px solid var(--glass-border);
+  /* No solid border, just glass feel */
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s var(--ease-out-quart),
+    transform 0.8s var(--ease-out-quart);
+}
+
+.chat-container.reveal {
+  opacity: 1;
+  transform: translateX(0);
+}

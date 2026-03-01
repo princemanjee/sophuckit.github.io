@@ -1,0 +1,81 @@
+intro:
+  lead: |
+    You want in? Good. We don't sell ad spots to just anyone — we sell them
+    to people who aren't afraid to be seen next to the truth. Here's what
+    we offer, what it costs, and why your competitors are going to hate you
+    for it.
+  body: |
+    Sophuckit reaches an audience that doesn't exist anywhere else: adults
+    who are paying attention, who don't trust mainstream media, and who
+    will absolutely remember who sponsored the episode where we exposed
+    the thing nobody else would touch. That's your demographic. You're welcome.
+
+audience:
+  stats:
+    - number: "25–54"
+      label: "Primary Age Range"
+    - number: "X,XXX"
+      label: "Downloads / Episode"
+    - number: "7"
+      label: "Platforms"
+    - number: "20+"
+      label: "Episodes"
+  description: |
+    Truth-seekers. Skeptics. Adults with opinions and disposable income
+    who actively seek out content that doesn't talk down to them.
+    High engagement, low tolerance for bullshit, strong brand recall
+    for sponsors who show up authentically.
+
+formats:
+  intro: |
+    Every ad is host-read. That means Soph and Godfather are delivering
+    your message in their voice — which means your audience actually
+    listens. No pre-recorded generic spots. No skipping past a banner.
+    Real people, real delivery, real results.
+  table:
+    - name: "Pre-Roll"
+      length: "30 sec"
+      placement: "Top of episode"
+      style: "Host-read"
+    - name: "Mid-Roll"
+      length: "60 sec"
+      placement: "Mid-episode"
+      style: "Host-read"
+    - name: "Sponsored Segment"
+      length: "Varies"
+      placement: "Integrated into episode"
+      style: "Topic-native"
+    - name: "Website Banner"
+      length: "Ongoing"
+      placement: "sophuckit.com section"
+      style: "Display"
+
+pricing:
+  intro: |
+    Three tiers. No hidden fees. No "we'll circle back on the numbers."
+    Here's what you pay and what you get. Pick your level of commitment.
+  tiers:
+    - label: "Bronze"
+      price: "$250"
+      per: "per episode"
+      features:
+        - "1x Pre-Roll (30 sec)"
+        - "Social media shout-out"
+        - "Basic analytics"
+    - label: "Silver"
+      price: "$600"
+      per: "per episode"
+      featured: true
+      features:
+        - "1x Pre-Roll (30 sec)"
+        - "1x Mid-Roll (60 sec)"
+        - "Priority social placement"
+        - "Monthly analytics"
+    - label: "Gold"
+      price: "$1,500"
+      per: "per month"
+      features:
+        - "Exclusive category sponsorship"
+        - "2x Mid-Roll per episode"
+        - "Website banner (ongoing)"
+        - "Direct host endorsement"

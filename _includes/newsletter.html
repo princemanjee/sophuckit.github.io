@@ -1,0 +1,36 @@
+<section id="newsletter" class="page">
+  <div class="section-inner">
+    <div class="newsletter-wrap">
+      <div class="newsletter-copy">
+        <h2 class="newsletter-title">{{ site.data.newsletter.title }}</h2>
+        <p class="newsletter-lead">{{ site.data.newsletter.lead }}</p>
+        <div class="newsletter-body">{{ site.data.newsletter.body | markdownify }}</div>
+        <ul class="newsletter-perks">
+          {% for perk in site.data.newsletter.perks %}
+            <li>{{ perk }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="newsletter-form-card glass-card">
+        <h3 class="newsletter-form-title">{{ site.data.newsletter.form.title }}</h3>
+        <p class="newsletter-form-subtitle">{{ site.data.newsletter.form.subtitle }}</p>
+        <form id="newsletter-form" onsubmit="submitNewsletter(event)">
+          <div class="form-group">
+            <label class="form-label newsletter-label">Email Address *</label>
+            <div class="newsletter-input-row">
+              <input type="email" id="newsletter-email" class="form-input newsletter-email-input" required placeholder="your@email.com">
+              <button type="submit" class="btn-primary newsletter-submit-btn">I'm In</button>
+            </div>
+            <p class="form-hint caption newsletter-hint">{{ site.data.newsletter.form.hint | markdownify }}</p>
+          </div>
+        </form>
+        <div id="newsletter-confirm" class="form-confirmation newsletter-confirm" style="display:none;">
+          <h3 class="form-confirm-title">{{ site.data.newsletter.form.confirm.title }}</h3>
+          <p>{{ site.data.newsletter.form.confirm.body | markdownify }}</p>
+          <button class="btn-secondary" onclick="resetNewsletter()">Sign Up Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

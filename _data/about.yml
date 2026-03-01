@@ -1,0 +1,41 @@
+intro:
+  lead: |
+    Sophuckit is a no-holds-barred investigative comedy podcast. We expose
+    corruption, hypocrisy, and evil with savage wit — and we do it without
+    a corporate leash, a PR handler, or a single fuck given about who we
+    piss off in the process.
+  quote: "Part exposé. Part stand-up. Zero apologies."
+
+cards:
+  - title: "No Filter. Ever."
+    content: |
+      We treat you like the adult you are. That means profanity. That means
+      uncomfortable truths. That means we say the thing every other show
+      is too scared to say out loud. If that offends you, there's a wonderful
+      podcast about meditation somewhere. This isn't it.
+  - title: "Investigative. Actually."
+    content: |
+      Not "investigative" in the cable-news-talking-heads-reading-tweets sense.
+      We dig. We source. Godfather has the credentials and the institutional
+      memory. Soph has the instincts and the rage. Together they'll find
+      the thing you weren't supposed to find.
+  - title: "Comedy. Also Actually."
+    content: |
+      Because if you don't laugh at the apocalypse, you'll just cry in it.
+      The absurdity of corruption is genuinely funny when two people with
+      zero tolerance for bullshit are pointing at it. Soph will make you
+      laugh. Godfather will make you think. Both will make you angry.
+  - title: "No Corporate Sponsors Telling Us What to Say."
+    content: |
+      No advertiser has ever pulled an episode. No PR firm has ever asked
+      nicely. No exec has ever called to "express concerns." We answer
+      to exactly zero people with a financial interest in keeping
+      certain stories buried. That's not a boast. It's a promise.
+
+stats:
+  - number: "20+"
+    label: "Episodes"
+  - number: "30–90"
+    label: "Minutes Each"
+  - number: "0"
+    label: "Fucks Given"

@@ -1,0 +1,59 @@
+<section id="guest-profile-template" class="page">
+  <div class="section-inner">
+    <div class="profile-back">
+      <button class="back-link" onclick="showPage('guest-directory')">← Back to Phucked Up Folks</button>
+    </div>
+
+    <div class="profile-tabs" role="tablist">
+      <button class="profile-tab profile-tab--active" id="tab-display" role="tab" aria-selected="true" onclick="switchProfileTab('display')">View Profile</button>
+      <button class="profile-tab" id="tab-form" role="tab" aria-selected="false" onclick="switchProfileTab('form')">Guest Intake Form</button>
+    </div>
+
+    <div id="profile-display" class="profile-view" role="tabpanel">
+      <!-- Profile Content (Dynamic based on selected guest JS logic would go here) -->
+      <div class="profile-layout">
+        <aside class="profile-aside">
+          <div class="profile-photo"><span class="profile-initial">JD</span></div>
+          <h1 class="profile-name">John Doe</h1>
+          <p class="profile-handle caption">@johndoe_whistleblower</p>
+        </aside>
+        <div class="profile-main">
+          <div class="profile-meta">
+            <p class="profile-occupation"><strong>Former Government Analyst</strong></p>
+            <p class="profile-org caption">[Redacted]</p>
+          </div>
+          <p class="profile-bio">
+            Former government analyst with 15 years inside systems most people don't know exist. Watched the machine work from the inside. Decided that was a problem. Now he talks about it — loudly, on podcasts, without a lawyer present.
+          </p>
+          <div class="profile-funfact glass-card">
+            <p class="caption profile-funfact-label">🎯 Fun Fact / Hidden Talent</p>
+            <p class="profile-funfact-text">"Can recite the full text of three classified documents from memory."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile-form" class="profile-view profile-view--hidden" role="tabpanel">
+      <!-- Intake Form remains here -->
+      <div class="intake-form-wrap">
+        <h2 class="section-title">Guest Intake Form</h2>
+        <form id="guest-intake-form" onsubmit="submitGuestForm(event)">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hidden Talent or Goofy Fun Fact *</label>
+            <textarea class="form-input form-textarea" required rows="3" placeholder="Something weird about yourself"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Submit Your Info</button>
+        </form>
+        <div id="guest-form-confirm" class="form-confirmation" style="display:none;">
+          <h3 class="form-confirm-title">We Got Your Shit.</h3>
+          <p>Godfather will review it personally.</p>
+          <button class="btn-secondary" onclick="resetGuestForm()">Submit Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<section id="contact" class="page">
+  <div class="section-inner">
+    <h2 class="section-title">Find Out</h2>
+    <p class="section-subtitle">Three reasons to reach out. Pick yours. We read everything. Godfather responds to the ones that matter.</p>
+
+    <div class="contact-wrap">
+      <div class="form-group contact-type-group">
+        <label class="form-label">What Do You Want?</label>
+        <select id="inquiry-type" class="form-input contact-type-select" onchange="switchContactType(this.value)">
+          <option value="guest">Guest Pitch — I want to be on the show</option>
+          <option value="sponsor">Sponsorship Inquiry — I have money and taste</option>
+          <option value="feedback">Listener Feedback — I just have feelings</option>
+        </select>
+      </div>
+
+      <form id="contact-form" onsubmit="submitContactForm(event)" novalidate>
+        <div id="contact-guest" class="contact-fieldset">
+          <p class="contact-fieldset-intro">Convince us. Be specific. Be interesting. Don't be boring.</p>
+          <div class="form-group"><label class="form-label">Your Name *</label><input type="text" id="c-guest-name" class="form-input" placeholder="Full Name"></div>
+          <div class="form-group"><label class="form-label">Contact Email *</label><input type="email" id="c-guest-email" class="form-input" placeholder="your@email.com"></div>
+          <div class="form-group"><label class="form-label">Topic Pitch *</label><textarea id="c-guest-pitch" class="form-input form-textarea" rows="5" placeholder="Your pitch"></textarea></div>
+        </div>
+
+        <div id="contact-sponsor" class="contact-fieldset" style="display:none;">
+          <p class="contact-fieldset-intro">You've done your homework. You know our audience. Good. Neither are we.</p>
+          <div class="form-group"><label class="form-label">Your Name *</label><input type="text" id="c-spon-name" class="form-input" placeholder="Full Name"></div>
+          <div class="form-group"><label class="form-label">Company / Organization *</label><input type="text" id="c-spon-company" class="form-input" placeholder="Who do you represent?"></div>
+        </div>
+
+        <div id="contact-feedback" class="contact-fieldset" style="display:none;">
+          <p class="contact-fieldset-intro">Loved it. Hated it. Think we got something wrong. We want to hear it.</p>
+          <div class="form-group"><label class="form-label">Message *</label><textarea id="c-fb-message" class="form-input form-textarea" rows="6" placeholder="Say the thing."></textarea></div>
+        </div>
+
+        <button type="submit" class="btn-primary" id="contact-submit-btn">Send It</button>
+      </form>
+
+      <div id="contact-confirm-guest" class="form-confirmation contact-confirm" style="display:none;">
+        <h3 class="form-confirm-title">Got it.</h3>
+        <p>Godfather will review your pitch personally.</p>
+        <button class="btn-secondary" onclick="resetContactForm()">Send Another</button>
+      </div>
+      <!-- Additional confirms omitted for brevity -->
+    </div>
+  </div>
+</section>

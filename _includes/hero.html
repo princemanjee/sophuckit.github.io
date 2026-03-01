@@ -1,0 +1,43 @@
+<section id="hero" class="page">
+  <div class="hero-inner">
+    <div class="logo hero-logo" onclick="showPage('hero')" role="banner" aria-label="Sophuckit Podcast">
+      <span class="logo-main">Sophuckit</span>
+      <span class="logo-sub">Podcast</span>
+    </div>
+
+    <div class="hero-tagline">
+      <p class="hero-line-1">We expose the bullshit.</p>
+      <p class="hero-line-2">We name the cunts.</p>
+      <p class="hero-line-3">We don't apologize.</p>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-artwork">
+        <img src="{{ site.baseurl }}/assets/images/sophuckit.jpg" alt="Sophuckit Podcast Artwork" class="hero-artwork-img">
+      </div>
+
+      {% assign latest_ep = site.episodes | sort: 'episode_number' | last %}
+      <div class="hero-episode glass-card">
+        <p class="caption">Latest Episode</p>
+        <h2 class="hero-ep-title">Episode #{{ latest_ep.episode_number }} — {{ latest_ep.title }}</h2>
+        <p class="hero-ep-meta">
+          <span class="caption">Aired: {{ latest_ep.air_date | date: "%B %Y" }}</span>
+          <span class="caption"> · </span>
+          <span class="caption">{{ latest_ep.duration }}</span>
+        </p>
+        <p class="hero-ep-desc">{{ latest_ep.content | strip_html | truncatewords: 30 }}</p>
+        <div class="hero-embed-placeholder">
+          {% if latest_ep.spotify_id %}
+            <iframe src="https://open.spotify.com/embed/episode/{{ latest_ep.spotify_id }}" width="100%" height="152" frameBorder="0" allow="encrypted-media"></iframe>
+          {% else %}
+            <p class="caption">🎧 Audio player coming soon.</p>
+          {% endif %}
+        </div>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="showPage('episode-library')">Already Phucked? Start Here</button>
+          <button class="btn-secondary" onclick="showPage('subscribe')">Get Phucked</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

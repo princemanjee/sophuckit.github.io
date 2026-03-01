@@ -1,0 +1,30 @@
+<section id="about" class="page">
+  <div class="section-inner">
+    <h2 class="section-title">Da Phuck is this?</h2>
+    <div class="about-lead">
+      <p class="about-intro">{{ site.data.about.intro.lead }}</p>
+    </div>
+    <blockquote class="pull-quote about-quote">"{{ site.data.about.intro.quote }}"</blockquote>
+    <div class="about-grid">
+      {% for card in site.data.about.cards %}
+        <div class="about-card glass-card">
+          <h3 class="about-card-title">{{ card.title }}</h3>
+          <p>{{ card.content }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="about-stats">
+      {% for stat in site.data.about.stats %}
+        <div class="stat-item">
+          <span class="stat-number">{{ stat.number }}</span>
+          <span class="stat-label caption">{{ stat.label }}</span>
+        </div>
+        {% unless forloop.last %}<div class="stat-divider"></div>{% endunless %}
+      {% endfor %}
+    </div>
+    <div class="about-cta">
+      <button class="btn-primary" onclick="showPage('episode-library')">Start Listening</button>
+      <button class="btn-secondary" onclick="showPage('host-bios')">Meet the Degenerate Phucks</button>
+    </div>
+  </div>
+</section>

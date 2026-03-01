@@ -1,0 +1,64 @@
+<section id="sponsor" class="page">
+  <div class="section-inner">
+    <h2 class="section-title">Phuck Around</h2>
+    <div class="sponsor-intro">
+      <p class="sponsor-lead">{{ site.data.sponsors.intro.lead }}</p>
+      <p>{{ site.data.sponsors.intro.body }}</p>
+    </div>
+    <div class="sponsor-section-block">
+      <h3 class="sponsor-block-title">Who's Listening</h3>
+      <div class="sponsor-audience-grid">
+        {% for stat in site.data.sponsors.audience.stats %}
+          <div class="audience-stat glass-card">
+            <span class="stat-number">{{ stat.number }}</span>
+            <span class="stat-label caption">{{ stat.label }}</span>
+          </div>
+        {% endfor %}
+      </div>
+      <p class="sponsor-audience-desc">{{ site.data.sponsors.audience.description }}</p>
+    </div>
+    <div class="sponsor-section-block">
+      <h3 class="sponsor-block-title">What We Offer</h3>
+      <div class="formats-table">
+        <div class="formats-header">
+          <span class="formats-cell formats-cell--head">Format</span>
+          <span class="formats-cell formats-cell--head">Length</span>
+          <span class="formats-cell formats-cell--head">Placement</span>
+        </div>
+        {% for format in site.data.sponsors.formats.table %}
+          <div class="formats-row">
+            <span class="formats-cell"><strong>{{ format.name }}</strong></span>
+            <span class="formats-cell">{{ format.length }}</span>
+            <span class="formats-cell">{{ format.placement }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="sponsor-section-block">
+      <h3 class="sponsor-block-title">What It Costs</h3>
+      <div class="pricing-grid">
+        {% for tier in site.data.sponsors.pricing.tiers %}
+          <div class="pricing-card {% if tier.featured %}pricing-card--featured{% endif %} glass-card">
+            <div class="pricing-tier-label caption">{{ tier.label }}</div>
+            <div class="pricing-price">{{ tier.price }}<span class="pricing-per caption">/{{ tier.per }}</span></div>
+            <ul class="pricing-features">
+              {% for feature in tier.features %}<li>{{ feature }}</li>{% endfor %}
+            </ul>
+            <button class="btn-primary pricing-cta" onclick="showPage('contact')">Get Started</button>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="sponsor-footer-block">
+      <div class="sponsor-mediakit">
+        <h3 class="sponsor-block-title">Need the Full Picture?</h3>
+        <p>Download our media kit for full demographic data, platform breakdowns, and everything else.</p>
+        <a href="#" class="btn-secondary">Download Media Kit</a>
+      </div>
+      <div class="sponsor-cta-block">
+        <blockquote class="pull-quote sponsor-quote">"Ready to Phuck Around? Hit us up."</blockquote>
+        <button class="btn-primary" onclick="showPage('contact')">Find Out</button>
+      </div>
+    </div>
+  </div>
+</section>

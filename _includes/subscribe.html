@@ -1,0 +1,35 @@
+<section id="subscribe" class="page">
+  <div class="section-inner">
+    <h2 class="section-title">Get Phucked</h2>
+    <p class="section-subtitle">Pick your poison. We're everywhere. No excuses left — go listen.</p>
+
+    <div class="subscribe-featured">
+      <div class="platform-card platform-card--featured glass-card">
+        <div class="platform-card-inner">
+          <div class="platform-icon-wrap" aria-hidden="true">
+            <!-- Icon placeholder based on platform name -->
+            <span class="platform-icon-text">{{ site.data.subscribe.featured.name | slice: 0 }}</span>
+          </div>
+          <div class="platform-info">
+            <span class="platform-badge caption">{{ site.data.subscribe.featured.badge }}</span>
+            <h3 class="platform-name">{{ site.data.subscribe.featured.name }}</h3>
+            <p class="platform-desc">{{ site.data.subscribe.featured.desc }}</p>
+          </div>
+        </div>
+        <a href="{{ site.data.subscribe.featured.url }}" target="_blank" rel="noopener noreferrer" class="platform-btn platform-btn--spotify">Listen on {{ site.data.subscribe.featured.name }}</a>
+      </div>
+    </div>
+
+    <div class="platform-grid">
+      {% for platform in site.data.subscribe.platforms %}
+        <div class="platform-card glass-card">
+          <div class="platform-icon-wrap" aria-hidden="true">
+            <span class="platform-icon-text">{{ platform.name | slice: 0 }}</span>
+          </div>
+          <h3 class="platform-name">{{ platform.name }}</h3>
+          <a href="{{ platform.url }}" target="_blank" rel="noopener noreferrer" class="platform-btn">{{ platform.btn_label }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

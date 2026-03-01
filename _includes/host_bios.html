@@ -1,0 +1,31 @@
+<section id="host-bios" class="page">
+  <div class="section-inner">
+    <h2 class="section-title">Degenerate Phucks</h2>
+    <p class="section-subtitle">
+      The two people responsible for all of this. You're welcome.
+    </p>
+
+    <div class="host-grid">
+      {% assign sorted_hosts = site.hosts | sort: 'order' %}
+      {% for host in sorted_hosts %}
+        <article class="host-card glass-card">
+          <div class="host-photo-wrap">
+            <div class="host-photo host-photo--{{ host.name | downcase }}"><span class="host-initial">{{ host.initial }}</span></div>
+          </div>
+          <div class="host-nameplate">{{ host.name }}</div>
+          <p class="host-tagline caption">{{ host.tagline }}</p>
+          <div class="host-bio">{{ host.content | markdownify }}</div>
+          <div class="host-quotes">
+            {% for quote in host.quotes %}
+              <blockquote class="pull-quote host-quote">"{{ quote }}"</blockquote>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="host-cta">
+      <button class="btn-primary" onclick="showPage('episode-library')">Hear Them in Action</button>
+      <button class="btn-secondary" onclick="showPage('subscribe')">Get Phucked</button>
+    </div>
+  </div>
+</section>
