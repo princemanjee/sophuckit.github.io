@@ -4,11 +4,16 @@ tagline: "Exposing the Phucking Truth."
 baseurl: "/sophuckit.github.io"
 url: "https://princemanjee.github.io"
 
+# CRITICAL: Allow 2026 dates to be displayed
+future: true
+
 collections:
   episodes:
     output: true
+    permalink: /episodes/:path/
   guests:
     output: true
+    permalink: /guests/:path/
   hosts:
     output: true
   seasons:
@@ -27,6 +32,7 @@ defaults:
       layout: "guest"
 
 markdown: kramdown
+theme: jekyll-theme-minimal
 exclude:
   - Gemfile
   - Gemfile.lock

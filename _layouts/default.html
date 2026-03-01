@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   
-  <!-- Robust pathing for GitHub Pages -->
-  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <!-- Use site.baseurl directly for maximum reliability -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body class="{{ page.body_class }}">
   
-  <!-- VISIBLE UPDATE MARKER -->
-  <div style="background: yellow; color: black; padding: 10px; text-align: center; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 9999;">
-    JEKYLL ACTIVE | Built: {{ "now" | date: "%H:%M:%S" }}
+  <!-- VISIBLE UPDATE MARKER (MOVED TO LAYOUT) -->
+  <div style="background: lime; color: black; padding: 10px; text-align: center; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 9999;">
+    JEKYLL ENGINE: ONLINE | Future Dates: Enabled | Built: {{ "now" | date: "%H:%M:%S" }}
   </div>
 
-  <header id="site-header" style="margin-top: 40px;">
+  <header id="site-header" style="margin-top: 50px;">
     <div class="nav-inner">
       <a class="logo" onclick="showPage('hero')">
         <span class="logo-main">Sophuckit</span>
@@ -40,6 +40,6 @@
     {{ content }}
   </main>
 
-  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 </html>

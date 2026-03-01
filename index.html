@@ -4,6 +4,10 @@ title: Sophuckit Podcast
 body_class: theme-hybrid
 ---
 
+<div class="debug-info" style="padding: 2rem; background: #eee; margin-top: 100px;">
+  <p><strong>Debug:</strong> Found {{ site.episodes | size }} episodes in collection.</p>
+</div>
+
 {% include hero.html %}
 {% include episode_library.html %}
 {% include about.html %}
@@ -15,5 +19,3 @@ body_class: theme-hybrid
 {% include contact.html %}
 {% include newsletter.html %}
 {% include store.html %}
-
-<!-- DEBUG: Built at {{ "now" | date: "%Y-%m-%d %H:%M:%S" }} -->
