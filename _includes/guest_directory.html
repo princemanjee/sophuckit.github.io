@@ -1,13 +1,45 @@
 <section id="guest-directory" class="page">
   <div class="section-inner">
     <h2 class="section-title">Phucked Up Folks</h2>
-    <div class="guest-grid">
+    <p class="section-subtitle">Everyone who's brave enough — or dumb enough — to sit across from Soph and Godfather. Real people. Real conversations. No PR handlers allowed.</p>
+
+    <!-- Guest card grid -->
+    <div class="guest-grid" id="guest-grid">
       {% for guest in site.guests %}
-        <article class="guest-card glass-card">
-          <h3>{{ guest.name }}</h3>
-          <p>{{ guest.occupation }}</p>
+        <article class="guest-card glass-card"
+                 data-tags="{{ guest.tags | join: ' ' }}"
+                 aria-label="Guest profile: {{ guest.name }}">
+          <div class="guest-card-header">
+            <div class="guest-photo" aria-hidden="true">
+              <span class="guest-initial">{{ guest.initial }}</span>
+            </div>
+            <div class="guest-id">
+              <h3 class="guest-name">{{ guest.name }}</h3>
+              <p class="guest-handle caption">{{ guest.handle }}</p>
+            </div>
+          </div>
+          <p class="guest-occupation caption">
+            {{ guest.occupation }}
+          </p>
+          <div class="guest-episodes">
+            <p class="caption guest-ep-label">Appeared in:</p>
+            {% for ep in guest.episodes %}
+              <a href="#"
+                 class="guest-ep-link"
+                 onclick="showPage('episode-library');return false;"
+                 aria-label="Go to episode #{{ ep.id }} in episode library">
+                Ep. #{{ ep.id }} — {{ ep.title }}
+              </a>
+            {% endfor %}
+          </div>
+          <button class="btn-primary guest-profile-btn"
+                  onclick="showPage('guest-profile-template')"
+                  aria-label="View full profile for {{ guest.name }}">
+            View Profile
+          </button>
         </article>
       {% endfor %}
-    </div>
-  </div>
+    </div><!-- /.guest-grid -->
+
+  </div><!-- /.section-inner -->
 </section>
