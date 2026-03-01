@@ -1,13 +1,8 @@
 title: Sophuckit Podcast
 description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
 tagline: "Exposing the Phucking Truth."
-baseurl: "" 
+baseurl: "/sophuckit.github.io"
 url: "https://princemanjee.github.io"
-
-# Meta / SEO
-meta:
-  og_image: "/assets/images/sophuckit.jpg"
-  twitter_handle: "@sophuckit"
 
 collections:
   episodes:
@@ -32,9 +27,12 @@ defaults:
       layout: "guest"
 
 markdown: kramdown
+# Do not use any theme, we have our own layouts
 theme: 
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - package-lock.json
+  - .jekyll-cache
+  - .sass-cache

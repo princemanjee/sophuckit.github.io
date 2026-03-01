@@ -1,25 +1,24 @@
 <section id="episode-library" class="page">
   <div class="section-inner">
     <h2 class="section-title">Already Phucked</h2>
-    <p class="section-subtitle">Total: {{ site.episodes | size }} episodes found.</p>
+    
+    <div style="color: gray; margin-bottom: 2rem;">
+      Checking Collection: {{ site.episodes.size }} episodes loaded.
+    </div>
 
     <div class="episode-grid">
-      {% for ep in site.episodes %}
-        <article class="episode-card card" data-tags="{{ ep.tags | join: ' ' }}">
-          <div class="ep-thumbnail-wrap" style="width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--color-gray); margin-bottom: 1.5rem; border-radius: var(--border-radius);">
-            {% if ep.thumbnail != "" and ep.thumbnail != nil %}
-              <img src="{{ ep.thumbnail }}" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
-            {% else %}
-              <img src="{{ site.baseurl }}/assets/images/sophuckit.jpg" alt="Default" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
-            {% endif %}
-          </div>
-          <div class="ep-header">
-            <span class="caption">S{{ ep.season }} E{{ ep.episode_number }}</span>
-          </div>
-          <h3 class="ep-title">{{ ep.title }}</h3>
-          <p class="ep-desc">{{ ep.content | strip_html | truncate: 100 }}</p>
-        </article>
-      {% endfor %}
+      {% if site.episodes.size > 0 %}
+        {% assign all_episodes = site.episodes | sort: 'air_date' | reverse %}
+        {% for ep in all_episodes %}
+          <article class="episode-card card">
+            <h3 style="color: var(--accent);">{{ ep.title }}</h3>
+            <p class="caption">Season {{ ep.season }} | Episode {{ ep.episode_number }}</p>
+            <p>{{ ep.content | strip_html | truncate: 150 }}</p>
+          </article>
+        {% endfor %}
+      {% else %}
+        <p>No episodes found in Jekyll collection. Check _config.yml and folder names.</p>
+      {% endif %}
     </div>
   </div>
 </section>

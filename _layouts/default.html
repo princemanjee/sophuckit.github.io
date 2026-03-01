@@ -11,9 +11,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="{{ site.meta.twitter_handle }}">
   <title>{{ page.title | default: site.title }} | {{ site.tagline }}</title>
+  
+  <!-- Use absolute-style URLs with baseurl to avoid path issues on GitHub Pages subdirectories -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body class="{{ page.body_class }}">
+  
+  <!-- VISIBLE UPDATE MARKER -->
+  <div style="background: yellow; color: black; padding: 5px; text-align: center; font-size: 12px; font-family: sans-serif;">
+    Site Version: 2.0 (Jekyll) | Built: {{ "now" | date: "%Y-%m-%d %H:%M:%S" }}
+  </div>
+
   <button id="theme-toggle" onclick="cycleTheme()" aria-label="Toggle Theme">Hybrid</button>
 
   <header id="site-header">
