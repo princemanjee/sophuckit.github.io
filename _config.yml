@@ -1,6 +1,8 @@
 title: Sophuckit Podcast
-baseurl: "/sophuckit.github.io"
 url: "https://princemanjee.github.io"
+baseurl: "/sophuckit.github.io"
+
+# Show all episodes regardless of date
 future: true
 
 collections:
@@ -13,5 +15,26 @@ collections:
   seasons:
     output: true
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: "episode"
+
 markdown: kramdown
-exclude: [node_modules, package-lock.json, .jekyll-cache, .sass-cache, Gemfile, Gemfile.lock]
+# Force GitHub to NOT use any theme
+remote_theme: ""
+theme: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package-lock.json
+  - .jekyll-cache
+  - .sass-cache
