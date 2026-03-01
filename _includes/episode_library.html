@@ -67,11 +67,13 @@
                 {% endif %}
               </div>
 
-              <p class="ep-desc">{{ ep.content | strip_html | truncatewords: 40 }}</p>
               <button class="expand-btn" onclick="toggleExpand(this)">+ Show Notes</button>
-              <div class="expandable" style="display:none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+              
+              <div class="expandable">
                 <div style="padding: 1rem; background: rgba(0,0,0,0.05); border-radius: 4px; margin-top: 1rem;">
-                  {{ ep.content | markdownify }}
+                  <div class="transcript-text">
+                    {{ ep.content | markdownify }}
+                  </div>
                   
                   {% if ep.shorts.size > 0 %}
                     <div class="ep-shorts" style="margin-top: 1.5rem;">
