@@ -1,17 +1,37 @@
 title: Sophuckit Podcast
 url: "https://princemanjee.github.io"
 baseurl: "/sophuckit.github.io"
+
 future: true
 
 collections:
   episodes:
     output: true
+    permalink: /episodes/:path/
   guests:
     output: true
+    permalink: /guests/:path/
   hosts:
     output: true
   seasons:
     output: true
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: "episode"
+
 markdown: kramdown
-exclude: [node_modules, package-lock.json, .jekyll-cache, .sass-cache, Gemfile, Gemfile.lock]
+theme: jekyll-theme-minimal
+
+exclude:
+  - node_modules
+  - package-lock.json
+  - .jekyll-cache
+  - .sass-cache

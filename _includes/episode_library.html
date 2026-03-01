@@ -51,16 +51,24 @@
 
               <div class="ep-platforms" style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
                 {% if ep.spotify_id != "" and ep.spotify_id != nil %}
-                  <a href="https://open.spotify.com/episode/{{ ep.spotify_id }}" target="_blank" title="Listen on Spotify" style="color: #1DB954; font-size: 1.2rem; text-decoration: none;">🎧</a>
+                  {% if ep.spotify_id contains 'http' %}
+                    <a href="{{ ep.spotify_id }}" target="_blank" title="Listen on Spotify" style="color: #1DB954; font-size: 1.2rem; text-decoration: none;">🎧</a>
+                  {% else %}
+                    <a href="https://open.spotify.com/episode/{{ ep.spotify_id }}" target="_blank" title="Listen on Spotify" style="color: #1DB954; font-size: 1.2rem; text-decoration: none;">🎧</a>
+                  {% endif %}
                 {% endif %}
                 {% if ep.apple_id != "" and ep.apple_id != nil %}
-                  <a href="https://podcasts.apple.com/podcast/id{{ ep.apple_id }}" target="_blank" title="Listen on Apple Podcasts" style="color: #A341FF; font-size: 1.2rem; text-decoration: none;">🍎</a>
+                  {% if ep.apple_id contains 'http' %}
+                    <a href="{{ ep.apple_id }}" target="_blank" title="Listen on Apple Podcasts" style="color: #A341FF; font-size: 1.2rem; text-decoration: none;">🍎</a>
+                  {% else %}
+                    <a href="https://podcasts.apple.com/podcast/id{{ ep.apple_id }}" target="_blank" title="Listen on Apple Podcasts" style="color: #A341FF; font-size: 1.2rem; text-decoration: none;">🍎</a>
+                  {% endif %}
                 {% endif %}
                 {% if ep.youtube != "" and ep.youtube != nil %}
                   <a href="{{ ep.youtube }}" target="_blank" title="Watch on YouTube" style="color: #FF0000; font-size: 1.2rem; text-decoration: none;">📽️</a>
                 {% endif %}
                 {% if ep.amazon_id != "" and ep.amazon_id != nil %}
-                  <a href="https://music.amazon.com/podcasts/{{ ep.amazon_id }}" target="_blank" title="Listen on Amazon Music" style="color: #00A8E1; font-size: 1.2rem; text-decoration: none;">🅰️</a>
+                  <a href="{{ ep.amazon_id }}" target="_blank" title="Listen on Amazon Music" style="color: #00A8E1; font-size: 1.2rem; text-decoration: none;">🅰️</a>
                 {% endif %}
                 {% if ep.google_id != "" and ep.google_id != nil %}
                   <a href="{{ ep.google_id }}" target="_blank" title="Listen on YouTube Music / Google" style="color: #FF0000; font-size: 1.2rem; text-decoration: none;">🔴</a>

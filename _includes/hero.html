@@ -26,7 +26,6 @@
           <span class="caption"> · </span>
           <span class="caption">{{ latest_ep.duration }}</span>
         </p>
-        <p class="hero-ep-desc">{{ latest_ep.content | strip_html | truncatewords: 30 }}</p>
         <div class="hero-embed-placeholder">
           {% if latest_ep.spotify_id != "" and latest_ep.spotify_id != nil %}
             {% if latest_ep.spotify_id contains 'open.spotify.com' %}
