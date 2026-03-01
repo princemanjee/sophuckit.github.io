@@ -12,8 +12,10 @@ meta:
 collections:
   episodes:
     output: true
+    permalink: /episodes/:path/
   guests:
     output: true
+    permalink: /guests/:path/
   hosts:
     output: true
   seasons:

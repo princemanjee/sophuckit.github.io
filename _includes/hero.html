@@ -16,18 +16,18 @@
         <img src="{{ "/assets/images/sophuckit.jpg" | relative_url }}" alt="Sophuckit Podcast Artwork" class="hero-artwork-img">
       </div>
 
-      {% assign latest_ep = site.episodes | sort: 'episode_number' | last %}
+      {% assign latest_ep = site.episodes | sort: 'air_date' | last %}
       <div class="hero-episode glass-card">
         <p class="caption">Latest Episode</p>
-        <h2 class="hero-ep-title">Episode #{{ latest_ep.episode_number }} — {{ latest_ep.title }}</h2>
+        <h2 class="hero-ep-title">S{{ latest_ep.season }} E{{ latest_ep.episode_number }} — {{ latest_ep.title }}</h2>
         <p class="hero-ep-meta">
-          <span class="caption">Aired: {{ latest_ep.air_date | date: "%B %Y" }}</span>
+          <span class="caption">Aired: {{ latest_ep.air_date | date: "%B %d, %Y" }}</span>
           <span class="caption"> · </span>
           <span class="caption">{{ latest_ep.duration }}</span>
         </p>
         <p class="hero-ep-desc">{{ latest_ep.content | strip_html | truncatewords: 30 }}</p>
         <div class="hero-embed-placeholder">
-          {% if latest_ep.spotify_id %}
+          {% if latest_ep.spotify_id != "" and latest_ep.spotify_id != nil %}
             <iframe src="https://open.spotify.com/embed/episode/{{ latest_ep.spotify_id }}" width="100%" height="152" frameBorder="0" allow="encrypted-media"></iframe>
           {% else %}
             <p class="caption">🎧 Audio player coming soon.</p>
