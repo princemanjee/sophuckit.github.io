@@ -1,24 +1,10 @@
 <section id="episode-library" class="page">
   <div class="section-inner">
-    <h2 class="section-title">Already Phucked</h2>
-    
-    <div style="color: gray; margin-bottom: 2rem;">
-      Checking Collection: {{ site.episodes.size }} episodes loaded.
-    </div>
-
-    <div class="episode-grid">
-      {% if site.episodes.size > 0 %}
-        {% assign all_episodes = site.episodes | sort: 'air_date' | reverse %}
-        {% for ep in all_episodes %}
-          <article class="episode-card card">
-            <h3 style="color: var(--accent);">{{ ep.title }}</h3>
-            <p class="caption">Season {{ ep.season }} | Episode {{ ep.episode_number }}</p>
-            <p>{{ ep.content | strip_html | truncate: 150 }}</p>
-          </article>
-        {% endfor %}
-      {% else %}
-        <p>No episodes found in Jekyll collection. Check _config.yml and folder names.</p>
-      {% endif %}
-    </div>
+    <h2>Library</h2>
+    <ul>
+      {% for ep in site.episodes %}
+        <li>{{ ep.title }} ({{ ep.air_date }})</li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
