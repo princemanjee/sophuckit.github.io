@@ -3,10 +3,27 @@
     <h2 class="section-title">Already Phucked</h2>
     
     <div class="episode-grid">
-      {% for ep in site.episodes %}
+      {% assign all_episodes = site.episodes | sort: 'air_date' | reverse %}
+      {% for ep in all_episodes %}
         <article class="episode-card card">
-          <h3>{{ ep.title }} (S{{ ep.season }} E{{ ep.episode_number }})</h3>
-          <p>{{ ep.content | strip_html | truncate: 100 }}</p>
+          <div class="ep-thumbnail-wrap" style="width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #424242; margin-bottom: 1.5rem; border-radius: 4px;">
+            {% if ep.thumbnail != "" and ep.thumbnail != nil %}
+              <img src="{{ ep.thumbnail }}" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+            {% else %}
+              <img src="{{ "/assets/images/sophuckit.jpg" | relative_url }}" alt="Default" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+            {% endif %}
+          </div>
+          <div class="ep-header">
+            <span class="caption">S{{ ep.season }} E{{ ep.episode_number }}</span>
+          </div>
+          <h3 class="ep-title">{{ ep.title }}</h3>
+          <p class="ep-desc">{{ ep.content | strip_html | truncate: 150 }}</p>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ Show Notes</button>
+          <div class="expandable" style="display:none;">
+            <div style="padding: 1rem; background: rgba(0,0,0,0.05); border-radius: 4px; margin-top: 1rem;">
+              {{ ep.content | markdownify }}
+            </div>
+          </div>
         </article>
       {% endfor %}
     </div>

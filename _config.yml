@@ -1,8 +1,6 @@
 title: Sophuckit Podcast
 url: "https://princemanjee.github.io"
 baseurl: "/sophuckit.github.io"
-
-# Fix for future dates
 future: true
 
 collections:
@@ -16,12 +14,4 @@ collections:
     output: true
 
 markdown: kramdown
-theme: minima
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - package-lock.json
-  - .jekyll-cache
-  - .sass-cache
+exclude: [node_modules, package-lock.json, .jekyll-cache, .sass-cache, Gemfile, Gemfile.lock]

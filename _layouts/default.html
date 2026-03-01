@@ -9,7 +9,7 @@
 <body class="{{ page.body_class }}">
   
   <div style="background: #00FF00; color: black; padding: 10px; text-align: center; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 9999;">
-    BUILD STABLE | VERSION 2.1 | {{ "now" | date: "%H:%M:%S" }}
+    BUILD STABLE | VERSION 2.2 | {{ "now" | date: "%H:%M:%S" }}
   </div>
 
   <header id="site-header" style="margin-top: 50px;">
@@ -19,16 +19,16 @@
         <span class="logo-sub">Podcast</span>
       </a>
       <ul class="nav-menu" id="nav-menu">
-        {% for link in site.data.navigation.main %}
-          <li>
-            <a href="#" 
-               class="nav-link {% if forloop.first %}active{% endif %}" 
-               data-section="{{ link.section }}" 
-               onclick="showPage('{{ link.section }}');return false;">
-               {{ link.title }}
-            </a>
-          </li>
-        {% endfor %}
+        <li><a href="#" class="nav-link active" data-section="hero" onclick="showPage('hero')">Hero</a></li>
+        <li><a href="#" class="nav-link" data-section="episode-library" onclick="showPage('episode-library')">Episodes</a></li>
+        <li><a href="#" class="nav-link" data-section="about" onclick="showPage('about')">About</a></li>
+        <li><a href="#" class="nav-link" data-section="host-bios" onclick="showPage('host-bios')">Hosts</a></li>
+        <li><a href="#" class="nav-link" data-section="subscribe" onclick="showPage('subscribe')">Subscribe</a></li>
+        <li><a href="#" class="nav-link" data-section="guest-directory" onclick="showPage('guest-directory')">Guests</a></li>
+        <li><a href="#" class="nav-link" data-section="sponsor" onclick="showPage('sponsor')">Sponsor</a></li>
+        <li><a href="#" class="nav-link" data-section="contact" onclick="showPage('contact')">Contact</a></li>
+        <li><a href="#" class="nav-link" data-section="newsletter" onclick="showPage('newsletter')">Newsletter</a></li>
+        <li><a href="#" class="nav-link" data-section="store" onclick="showPage('store')">Store</a></li>
       </ul>
     </div>
   </header>
