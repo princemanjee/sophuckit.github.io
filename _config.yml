@@ -2,7 +2,6 @@ title: Sophuckit Podcast
 url: "https://princemanjee.github.io"
 baseurl: "/sophuckit.github.io"
 
-# Show all episodes regardless of date
 future: true
 
 collections:
@@ -27,9 +26,6 @@ defaults:
       layout: "episode"
 
 markdown: kramdown
-# Force GitHub to NOT use any theme
-remote_theme: ""
-theme: ""
 
 exclude:
   - Gemfile
