@@ -2,7 +2,7 @@ title: Sophuckit Podcast
 url: "https://princemanjee.github.io"
 baseurl: "/sophuckit.github.io"
 
-# Force 2026 dates
+# Force 2026 dates to show
 future: true
 
 collections:
@@ -27,9 +27,11 @@ defaults:
       layout: "episode"
 
 markdown: kramdown
-# No theme line at all
+# Do NOT define a theme here, we use our own layouts
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - package-lock.json
+  - .jekyll-cache
+  - .sass-cache
