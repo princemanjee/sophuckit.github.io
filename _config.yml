@@ -1,19 +1,15 @@
 title: Sophuckit Podcast
-description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
-tagline: "Exposing the Phucking Truth."
-baseurl: "/sophuckit.github.io"
 url: "https://princemanjee.github.io"
+baseurl: "/sophuckit.github.io"
 
-# CRITICAL: Allow 2026 dates to be displayed
+# Force 2026 dates
 future: true
 
 collections:
   episodes:
     output: true
-    permalink: /episodes/:path/
   guests:
     output: true
-    permalink: /guests/:path/
   hosts:
     output: true
   seasons:
@@ -22,21 +18,18 @@ collections:
 defaults:
   - scope:
       path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
       type: "episodes"
     values:
       layout: "episode"
-  - scope:
-      path: ""
-      type: "guests"
-    values:
-      layout: "guest"
 
 markdown: kramdown
-theme: jekyll-theme-minimal
+# No theme line at all
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - package-lock.json
-  - .jekyll-cache
-  - .sass-cache
