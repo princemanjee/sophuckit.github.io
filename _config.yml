@@ -1,7 +1,7 @@
 title: Sophuckit Podcast
 description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
 tagline: "Exposing the Phucking Truth."
-baseurl: "/sophuckit.github.io" # Base subpath for your repository
+baseurl: "" 
 url: "https://princemanjee.github.io"
 
 # Meta / SEO
@@ -12,10 +12,8 @@ meta:
 collections:
   episodes:
     output: true
-    permalink: /episodes/:path/
   guests:
     output: true
-    permalink: /guests/:path/
   hosts:
     output: true
   seasons:
@@ -32,27 +30,11 @@ defaults:
       type: "guests"
     values:
       layout: "guest"
-  - scope:
-      path: ""
-      type: "hosts"
-    values:
-      layout: "host"
-  - scope:
-      path: ""
-      type: "seasons"
-    values:
-      layout: "season"
 
 markdown: kramdown
-# Removing theme: minima to ensure our custom layouts are used
+theme: 
 exclude:
   - Gemfile
   - Gemfile.lock
-  - .sass-cache
-  - .jekyll-cache
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - node_modules
   - package-lock.json

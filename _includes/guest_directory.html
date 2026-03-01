@@ -1,44 +1,38 @@
 <section id="guest-directory" class="page">
   <div class="section-inner">
     <h2 class="section-title">Phucked Up Folks</h2>
-    <p class="section-subtitle">Everyone who's brave enough — or dumb enough — to sit across from Soph and Godfather.</p>
-
-    <!-- Search Bar -->
-    <div class="search-wrap">
-      <label for="guest-search" class="sr-only">Filter guests</label>
-      <input type="search"
-             id="guest-search"
-             class="search-bar"
-             placeholder="Filter by name, occupation, or episode..."
-             aria-label="Filter guests by name, occupation or episode"
-             oninput="filterGuests(this.value)">
-    </div>
-
-    <!-- No results message -->
-    <p id="no-guest-results" style="display:none;" class="caption" aria-live="polite">
-      No guests match that filter.
-    </p>
+    <p class="section-subtitle">The people brave enough to sit in the hot seat.</p>
 
     <div class="guest-grid" id="guest-grid">
-      {% for guest in site.guests %}
-        <article class="guest-card glass-card" data-tags="{{ guest.tags | join: ' ' }}">
-          <div class="guest-card-header">
-            <div class="guest-photo"><span class="guest-initial">{{ guest.initial }}</span></div>
-            <div class="guest-id">
-              <h3 class="guest-name">{{ guest.name }}</h3>
-              <p class="guest-handle caption">{{ guest.handle }}</p>
+      {% if site.guests.size > 0 %}
+        {% for guest in site.guests %}
+          <article class="guest-card glass-card" data-tags="{{ guest.tags | join: ' ' }}" aria-label="Guest profile: {{ guest.name }}">
+            <div class="guest-card-header">
+              <div class="guest-photo" aria-hidden="true">
+                <span class="guest-initial">{{ guest.initial }}</span>
+              </div>
+              <div class="guest-id">
+                <h3 class="guest-name">{{ guest.name }}</h3>
+                <p class="guest-handle caption">{{ guest.handle }}</p>
+              </div>
             </div>
-          </div>
-          <p class="guest-occupation caption">{{ guest.occupation }}</p>
-          <div class="guest-episodes">
-            <p class="caption guest-ep-label">Appeared in:</p>
-            {% for ep in guest.episodes %}
-              <a href="#" class="guest-ep-link" onclick="showPage('episode-library');return false;">Ep. #{{ ep.id }} — {{ ep.title }}</a>
-            {% endfor %}
-          </div>
-          <button class="btn-primary guest-profile-btn" onclick="showPage('guest-profile-template')">View Profile</button>
-        </article>
-      {% endfor %}
+            <p class="guest-occupation caption">{{ guest.occupation }}</p>
+            <div class="guest-episodes">
+              <p class="caption guest-ep-label">Appeared in:</p>
+              {% for ep in guest.episodes %}
+                <a href="#" class="guest-ep-link" onclick="showPage('episode-library');return false;">
+                  Ep. #{{ ep.id }} — {{ ep.title }}
+                </a>
+              {% endfor %}
+            </div>
+            <button class="btn-primary guest-profile-btn" onclick="showPage('guest-profile-template')">
+              View Profile
+            </button>
+          </article>
+        {% endfor %}
+      {% else %}
+        <p class="caption">No guests found in collection.</p>
+      {% endif %}
     </div>
   </div>
 </section>
