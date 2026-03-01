@@ -1,84 +1,15 @@
 <section id="episode-library" class="page">
   <div class="section-inner">
-    <h2 class="section-title">Already Phucked</h2>
-    <p class="section-subtitle">Every episode. Every rant. Every truth bomb. (Total: {{ site.episodes | size }} episodes)</p>
+    <h2 class="section-title">Already Phucked (DEBUG MODE)</h2>
+    <p>Total episodes in collection: {{ site.episodes | size }}</p>
 
-    {% assign seasons = site.seasons | sort: 'number' | reverse %}
-    {% for season in seasons %}
-      <div class="season-block" style="margin-top: 4rem;">
-        <h3 class="season-title" style="color: var(--accent); font-family: 'OPTICopperplate', serif; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 2rem;">
-          {{ season.title }}
-        </h3>
-        <p class="season-desc" style="opacity: 0.8; margin-bottom: 2rem;">{{ season.description }}</p>
-        
-        <div class="episode-grid">
-          {% comment %}
-            Force types to string for robust comparison in Jekyll
-          {% endcomment %}
-          {% assign s_num = season.number | plus: 0 %}
-          {% assign season_episodes = site.episodes | where: "season", s_num | sort: 'episode_number' | reverse %}
-          
-          {% for ep in season_episodes %}
-            <article class="episode-card card" data-tags="{{ ep.tags | join: ' ' }}">
-              
-              <div class="ep-thumbnail-wrap" style="width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--color-gray); margin-bottom: 1.5rem; border-radius: var(--border-radius);">
-                {% if ep.thumbnail != "" and ep.thumbnail != nil %}
-                  <img src="{{ ep.thumbnail }}" alt="Thumbnail for {{ ep.title }}" style="width: 100%; height: 100%; object-fit: cover;">
-                {% else %}
-                  <img src="{{ "/assets/images/sophuckit.jpg" | relative_url }}" alt="Default Podcast Artwork" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
-                {% endif %}
-              </div>
-
-              <div class="ep-header">
-                <span class="caption ep-number">S{{ ep.season }} Episode #{{ ep.episode_number }}</span>
-                <span class="caption ep-date">{{ ep.air_date | date: "%B %d, %Y" }}</span>
-              </div>
-              <h3 class="ep-title">{{ ep.title }}</h3>
-              
-              <div class="ep-meta" style="margin-bottom: 1rem;">
-                <span class="caption">
-                  Guest: 
-                  {% if ep.guest_id != "" and ep.guest_id != nil %}
-                    {% assign guest = site.guests | where: "slug", ep.guest_id | first %}
-                    {% if guest %}
-                      <a href="#" onclick="showPage('guest-directory'); return false;" style="color: var(--accent); text-decoration: underline;">{{ guest.name }}</a>
-                    {% else %}
-                      {{ ep.guest | default: "Co-host Episode" }}
-                    {% endif %}
-                  {% else %}
-                    {{ ep.guest | default: "Co-host Episode" }}
-                  {% endif %}
-                </span>
-                <span class="caption"> · {{ ep.duration }}</span>
-              </div>
-
-              <div class="ep-platforms" style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
-                {% if ep.spotify_id != "" and ep.spotify_id != nil %}
-                  <a href="https://open.spotify.com/episode/{{ ep.spotify_id }}" target="_blank" title="Listen on Spotify" style="color: #1DB954; font-size: 1.2rem;">🎧</a>
-                {% endif %}
-                {% if ep.apple_id != "" and ep.apple_id != nil %}
-                  <a href="https://podcasts.apple.com/podcast/id{{ ep.apple_id }}" target="_blank" title="Listen on Apple Podcasts" style="color: #A341FF; font-size: 1.2rem;">🍎</a>
-                {% endif %}
-                {% if ep.amazon_id != "" and ep.amazon_id != nil %}
-                  <a href="https://music.amazon.com/podcasts/{{ ep.amazon_id }}" target="_blank" title="Listen on Amazon Music" style="color: #00A8E1; font-size: 1.2rem;">🅰️</a>
-                {% endif %}
-                {% if ep.google_id != "" and ep.google_id != nil %}
-                  <a href="{{ ep.google_id }}" target="_blank" title="Listen on YouTube Music / Google" style="color: #FF0000; font-size: 1.2rem;">🔴</a>
-                {% endif %}
-              </div>
-
-              <p class="ep-desc">{{ ep.content | strip_html | truncatewords: 40 }}</p>
-              <button class="expand-btn" onclick="toggleExpand(this)">+ Show Notes</button>
-              <div class="expandable">
-                <h4>Show Notes</h4>
-                <div class="transcript-text">
-                  {{ ep.content | markdownify }}
-                </div>
-              </div>
-            </article>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
+    <div class="episode-grid">
+      {% for ep in site.episodes %}
+        <article class="episode-card card">
+          <h3>{{ ep.title }} (S{{ ep.season }} E{{ ep.episode_number }})</h3>
+          <p>{{ ep.content | strip_html | truncate: 100 }}</p>
+        </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
