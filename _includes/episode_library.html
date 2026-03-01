@@ -56,6 +56,9 @@
                 {% if ep.apple_id != "" and ep.apple_id != nil %}
                   <a href="https://podcasts.apple.com/podcast/id{{ ep.apple_id }}" target="_blank" title="Listen on Apple Podcasts" style="color: #A341FF; font-size: 1.2rem; text-decoration: none;">🍎</a>
                 {% endif %}
+                {% if ep.youtube != "" and ep.youtube != nil %}
+                  <a href="{{ ep.youtube }}" target="_blank" title="Watch on YouTube" style="color: #FF0000; font-size: 1.2rem; text-decoration: none;">📽️</a>
+                {% endif %}
                 {% if ep.amazon_id != "" and ep.amazon_id != nil %}
                   <a href="https://music.amazon.com/podcasts/{{ ep.amazon_id }}" target="_blank" title="Listen on Amazon Music" style="color: #00A8E1; font-size: 1.2rem; text-decoration: none;">🅰️</a>
                 {% endif %}
@@ -69,6 +72,17 @@
               <div class="expandable" style="display:none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
                 <div style="padding: 1rem; background: rgba(0,0,0,0.05); border-radius: 4px; margin-top: 1rem;">
                   {{ ep.content | markdownify }}
+                  
+                  {% if ep.shorts.size > 0 %}
+                    <div class="ep-shorts" style="margin-top: 1.5rem;">
+                      <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent);">Related Shorts:</h4>
+                      <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        {% for short in ep.shorts %}
+                          <li><a href="{{ short }}" target="_blank" class="tag" style="background: #FF0000; color: white;">🎬 Watch Short</a></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
                 </div>
               </div>
             </article>
