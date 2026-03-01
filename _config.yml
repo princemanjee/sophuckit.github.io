@@ -16,6 +16,8 @@ collections:
     output: true
   hosts:
     output: true
+  seasons:
+    output: true
 
 defaults:
   - scope:
@@ -33,6 +35,11 @@ defaults:
       type: "hosts"
     values:
       layout: "host"
+  - scope:
+      path: ""
+      type: "seasons"
+    values:
+      layout: "season"
 
 markdown: kramdown
 theme: minima # You can keep or remove this; for a custom site we'll rely on our own CSS.

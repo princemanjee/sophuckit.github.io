@@ -3,44 +3,33 @@
     <h2 class="section-title">Already Phucked</h2>
     <p class="section-subtitle">Every episode. Every rant. Every truth bomb.</p>
 
-    <!-- Search Bar -->
-    <div class="search-wrap">
-      <label for="episode-search" class="sr-only">Search episodes</label>
-      <input type="search"
-             id="episode-search"
-             class="search-bar"
-             placeholder="Search episodes, guests, topics..."
-             aria-label="Search episodes"
-             oninput="filterEpisodes(this.value)">
-    </div>
-
-    <!-- No results message -->
-    <p id="no-results" style="display:none;" class="caption" aria-live="polite">
-      No episodes match that search. Try a different keyword.
-    </p>
-
-    <div class="episode-grid" id="episode-grid">
-      {% assign sorted_episodes = site.episodes | sort: 'episode_number' | reverse %}
-      {% for ep in sorted_episodes %}
-        <article class="episode-card card" data-tags="{{ ep.tags | join: ' ' }}">
-          <div class="ep-header">
-            <span class="caption ep-number">Episode #{{ ep.episode_number }}</span>
-            <span class="caption ep-date">{{ ep.air_date | date: "%B %Y" }}</span>
-          </div>
-          <h3 class="ep-title">{{ ep.title }}</h3>
-          <p class="ep-desc">{{ ep.content | strip_html | truncatewords: 40 }}</p>
-          <div class="ep-tags">
-            {% for tag in ep.tags %}
-              <span class="tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          <button class="expand-btn" onclick="toggleExpand(this)">+ Show Notes</button>
-          <div class="expandable">
-            <h4>Show Notes</h4>
-            <p>{{ ep.content | markdownify }}</p>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
+    {% assign seasons = site.seasons | sort: 'number' | reverse %}
+    {% for season in seasons %}
+      <div class="season-block" style="margin-top: 4rem;">
+        <h3 class="season-title" style="color: var(--accent); font-family: 'OPTICopperplate', serif; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 2rem;">
+          {{ season.title }}
+        </h3>
+        <p class="season-desc" style="opacity: 0.8; margin-bottom: 2rem;">{{ season.description }}</p>
+        
+        <div class="episode-grid">
+          {% assign season_episodes = site.episodes | where: "season", season.number | sort: 'episode_number' | reverse %}
+          {% for ep in season_episodes %}
+            <article class="episode-card card" data-tags="{{ ep.tags | join: ' ' }}">
+              <div class="ep-header">
+                <span class="caption ep-number">Episode #{{ ep.episode_number }}</span>
+                <span class="caption ep-date">{{ ep.air_date | date: "%B %Y" }}</span>
+              </div>
+              <h3 class="ep-title">{{ ep.title }}</h3>
+              <p class="ep-desc">{{ ep.content | strip_html | truncatewords: 40 }}</p>
+              <button class="expand-btn" onclick="toggleExpand(this)">+ Show Notes</button>
+              <div class="expandable">
+                <h4>Show Notes</h4>
+                <p>{{ ep.content | markdownify }}</p>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </section>
