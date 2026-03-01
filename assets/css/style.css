@@ -165,8 +165,8 @@
       font-family: 'OPTICopperplate';
       font-size: 18px;
       letter-spacing: 0.28em;
-      margin-right: 6px;
-      margin-top: 20px;
+      margin-right: -10px; /* Moved right to avoid P-p overlap */
+      margin-top: 26px;    /* Moved down for breathing room */
       text-transform: uppercase;
       text-shadow:
         0px 0px 6px rgba(0, 0, 0, 0.35),
@@ -263,7 +263,8 @@
     }
     #site-header .logo-sub {
       font-size: 9px;
-      margin-top: 8px;
+      margin-right: -4px; /* Moved right */
+      margin-top: 10px;   /* Moved down */
       color: #CE2029;
     }
 
