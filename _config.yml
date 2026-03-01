@@ -1,7 +1,7 @@
 title: Sophuckit Podcast
 description: "No-holds-barred investigative comedy. We expose corruption, hypocrisy, and evil with savage wit. Adults only."
 tagline: "Exposing the Phucking Truth."
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/sophuckit.github.io" # the subpath of your site, e.g. /blog
 url: "https://sophuckit.com" # the base hostname & protocol for your site
 
 # Meta / SEO
