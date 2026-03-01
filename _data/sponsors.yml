@@ -5,7 +5,7 @@ intro:
     we offer, what it costs, and why your competitors are going to hate you
     for it.
   body: |
-    Sophuckit reaches an audience that doesn't exist anywhere else: adults
+    <span class="brand-wordmark">Sophuckit</span> reaches an audience that doesn't exist anywhere else: adults
     who are paying attention, who don't trust mainstream media, and who
     will absolutely remember who sponsored the episode where we exposed
     the thing nobody else would touch. That's your demographic. You're welcome.
@@ -47,7 +47,7 @@ formats:
       style: "Topic-native"
     - name: "Website Banner"
       length: "Ongoing"
-      placement: "sophuckit.com section"
+      placement: "<span class='brand-wordmark'>sophuckit</span>.com section"
       style: "Display"
 
 pricing:

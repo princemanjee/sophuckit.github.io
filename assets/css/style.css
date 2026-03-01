@@ -173,6 +173,29 @@
         0px 0px 12px rgba(0, 0, 0, 0.25);
     }
 
+    /* ── Sophuckit Wordmark Enforcement ────────────────── */
+    .brand-wordmark {
+      font-family: 'Mistrully', cursive !important;
+      text-transform: none !important;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    /* Color rules: Strictly black on white, white on black */
+    html.theme-light .brand-wordmark,
+    html.theme-hybrid section:not(#hero):not(#subscribe):not(#newsletter):not(#store) .brand-wordmark {
+      color: #000000 !important;
+    }
+
+    html.theme-dark .brand-wordmark,
+    html.theme-hybrid #hero .brand-wordmark,
+    html.theme-hybrid #subscribe .brand-wordmark,
+    html.theme-hybrid #newsletter .brand-wordmark,
+    html.theme-hybrid #store .brand-wordmark,
+    footer .brand-wordmark {
+      color: #FFFFFF !important;
+    }
+
     /* ── Theme Color Rules ──────────────────────────────── */
 
     /* --- Logo colors by zone --- */
