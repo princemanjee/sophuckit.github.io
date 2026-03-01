@@ -24,10 +24,10 @@
       --accent-hover:     #a81a22;
 
       /* Glass effect */
-      --glass-bg:         rgba(255, 255, 255, 0.65);
-      --glass-border:     rgba(0, 0, 0, 0.08);
-      --glass-blur:       12px;
-      --shadow:           rgba(0, 0, 0, 0.1);
+      --glass-bg:         rgba(255, 255, 255, 0.12);
+      --glass-border:     rgba(255, 255, 255, 0.25);
+      --glass-blur:       25px;
+      --shadow:           rgba(0, 0, 0, 0.2);
 
       /* Layout */
       --max-width:        1200px;
@@ -59,9 +59,9 @@
       --bg:           #000000;
       --text:         #FFFFFF;
       --text-muted:   #a0a0a0;
-      --glass-bg:     rgba(20, 20, 23, 0.6);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --shadow:       rgba(0, 0, 0, 0.5);
+      --glass-bg:     rgba(30, 30, 35, 0.4);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --shadow:       rgba(0, 0, 0, 0.6);
       --hero-bg:      #000000;
       --hero-text:    #FFFFFF;
       --footer-bg:    #000000;
@@ -434,13 +434,31 @@
     .pricing-card,
     .newsletter-form-card,
     .store-cta-card {
-      background: var(--glass-bg);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
       backdrop-filter: blur(var(--glass-blur));
       -webkit-backdrop-filter: blur(var(--glass-blur));
       border: 1px solid var(--glass-border);
       border-radius: var(--border-radius-lg);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
       padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle reflection sheen for cards */
+    .glass-card::after,
+    .episode-card::after,
+    .host-card::after,
+    .guest-card::after,
+    .pricing-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+      pointer-events: none;
     }
 
     .hero-ep-title {
@@ -489,40 +507,74 @@
       }
     }
 
-    /* ── Reusable Buttons ───────────────────────────────── */
-    .btn-primary {
-      font-family: 'OPTICopperplate', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.75em 1.75em;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: filter 0.2s ease, transform 0.1s ease;
-      background-color: #CE2029;
-      color: #FFFFFF;
-    }
-    .btn-primary:hover { filter: brightness(0.85); transform: translateY(-1px); }
-
+    /* ── Reusable Buttons (Glossy Pill Design) ──────────────── */
+    .btn-primary,
     .btn-secondary {
       font-family: 'OPTICopperplate', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.7em 1.6em;
-      border: 2px solid #CE2029;
-      border-radius: 3px;
+      padding: 0.9em 2.2em;
+      border-radius: 50px; /* Round shape */
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      background-color: transparent;
-      color: #CE2029;
-      transition: filter 0.2s ease;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Hovering effect */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
     }
-    .btn-secondary:hover { filter: brightness(0.85); }
+
+    /* Glossy texture / sheen for all buttons */
+    .btn-primary::before,
+    .btn-secondary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), transparent);
+      pointer-events: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #CE2029, #8b151b);
+      color: #FFFFFF;
+      border: 1px solid rgba(206, 32, 41, 0.5);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, rgba(66, 66, 66, 0.8), rgba(30, 30, 30, 0.8));
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hover State: Resess a bit (sink slightly) */
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(2px); /* Sink into the shadow */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.1);
+    }
+
+    /* Active State: Physical push effect */
+    .btn-primary:active,
+    .btn-secondary:active {
+      transform: translateY(4px) scale(0.97); /* Pushed down */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      filter: brightness(0.9);
+    }
+
+    /* Specific adjustment for Secondary button border in light theme */
+    html.theme-light .btn-secondary {
+      background: linear-gradient(135deg, rgba(206, 32, 41, 0.1), rgba(206, 32, 41, 0.05));
+      color: #CE2029;
+      border: 1px solid rgba(206, 32, 41, 0.3);
+    }
 
     /* --- Theme toggle button --- */
     #theme-toggle {
