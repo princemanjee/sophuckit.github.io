@@ -17,6 +17,7 @@
       </div>
 
       {% assign latest_ep = site.episodes | sort: 'air_date' | last %}
+      {% if latest_ep %}
       <div class="hero-episode glass-card">
         <p class="caption">Latest Episode</p>
         <h2 class="hero-ep-title">S{{ latest_ep.season }} E{{ latest_ep.episode_number }} — {{ latest_ep.title }}</h2>
@@ -38,6 +39,11 @@
           <button class="btn-secondary" onclick="showPage('subscribe')">Get Phucked</button>
         </div>
       </div>
+      {% else %}
+      <div class="hero-episode glass-card">
+        <p>No episodes found.</p>
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
